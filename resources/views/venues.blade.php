@@ -38,7 +38,7 @@
 <body>
     <nav class="w-full fixed bg-white border-gray-200 px-8 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
-            <a href="/" class="font-extrabold text-2xl text-primary">
+            <a href="/" class="font-extrabold text-2xl text-primary dark:text-white">
                 VenueKita
             </a>
             <button data-collapse-toggle="navbar-default" type="button"
