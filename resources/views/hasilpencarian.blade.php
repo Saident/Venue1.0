@@ -88,6 +88,7 @@
 
     <div class="w-full h-full bg-no-repeat bg-center items-center justify-center p-56"
         style="background-image: url('./images/bg_beranda.png')">
+        <form>
         <div class="bg-white rounded-lg flex flex-col py-2 px-4">
             <div class="flex flex-col">
                 <div class="flex flex-col px-8 py-8">
@@ -169,8 +170,6 @@
                         </div>
                     </div>
 
-
-
                 </div>
             </div>
             <img class="w-full items-center justify-center pt-8 px-16" src="./images/line_pembayara.png">
@@ -180,10 +179,13 @@
                         Venue
                     </button></a> --}}
 
-                <button class="bg-blank text-white rounded-2xl text-center font-semibold py-2 px-4"><a
-                        href="#">Cari Venue</a></button>
+                <button class="bg-blank text-white rounded-2xl text-center font-semibold py-2 px-4"
+                method="post"
+                ><a>Cari Venue</a></button>
             </div>
         </div>
+    </form>
+
 
         <div class="w-full flex flex-row py-16 gap-8">
             <div class="flex flex-col gap-2">
@@ -293,102 +295,25 @@
             </div>
 
             <div class="w-full flex flex-col bg-white rounded-lg py-8 px-8 gap-8">
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
+            {{-- item --}}
+            @foreach($venue as $vn)
+            <div
+                class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
+                <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
+                <div class="flex flex-col justify-start gap-2">
+                    <h1 class="text-primary text-2xl font-semibold">{{$vn->name}}</h1>
+                    <h2 class="text-primary font-medium">{{$vn->city->city}}</h2>
+                    <div class="flex flex-row items-center gap-2">
+                        <img class="aspect-auto" src="./images/rating.png">
+                        <p class="text-primary font-medium text-medium">(214)</p>
                     </div>
+                    <p class="text-primary font-medium text-medium pr-8">
+                        {{$vn->description}}</p>
+                    <p class="text-primary font-medium text-medium py-6"><a href="/pembayaran/{{$vn->id}}">Selengkapnya ></a></p>
                 </div>
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
-                    <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
-                    <div class="flex flex-col justify-start gap-2">
-                        <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                        <h2 class="text-primary font-medium">Maluku Tengah</h2>
-                        <div class="flex flex-row items-center gap-2">
-                            <img class="aspect-auto" src="./images/rating.png">
-                            <p class="text-primary font-medium text-medium">(214)</p>
-                        </div>
-                        <p class="text-primary font-medium text-medium pr-8">
-                            Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                            pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                        <p class="text-primary font-medium text-medium py-6"><a href="#">Selengkapnya ></a></p>
-                    </div>
-                </div>
+            </div>
+            @endforeach
+
                 <div class="flex flex-row items-center gap-4 justify-end">
                     <p class="text-primary font-medium text-md"><a href="@">Sebelumnya</a></p>
                     <p class="text-primary font-medium text-md"><a href="@">1</a></p>

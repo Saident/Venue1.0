@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Review;
 
-class review extends Seeder
+
+class ReviewSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +16,7 @@ class review extends Seeder
      */
     public function run()
     {
-        $review = [
+        $reviews = [
             [
                 'review' => 'Venue ini dapat menampung banyak pengunjung, sangat bagus untuk acara yang mengundang banyak kerabat',
                 'id_venue' => 1
@@ -40,5 +42,8 @@ class review extends Seeder
                 'id_venue' => 6
             ],
         ];
+        foreach ($reviews as $key => $value) {
+            Review::create($value);
+        }
     }
 }

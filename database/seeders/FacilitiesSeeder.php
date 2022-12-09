@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Facility;
+
 
 class FacilitiesSeeder extends Seeder
 {
@@ -16,47 +18,50 @@ class FacilitiesSeeder extends Seeder
     {
         $cities = [
             [
-                'facilitty' => 'Audio Sound System'
+                'facility' => 'Audio Sound System'
             ],
             [
-                'facilitty' => 'Halaman Parkir'
+                'facility' => 'Halaman Parkir'
             ],
             [
-                'facilitty' => 'Infrastruktur Distabilitas'
+                'facility' => 'Infrastruktur Distabilitas'
             ],
             [
-                'facilitty' => 'Kebersihan'
+                'facility' => 'Kebersihan'
             ],
             [
-                'facilitty' => 'Keamanan'
+                'facility' => 'Keamanan'
             ],
             [
-                'facilitty' => 'Kursi'
+                'facility' => 'Kursi'
             ],
             [
-                'facilitty' => 'LCD Proyektor'
+                'facility' => 'LCD Proyektor'
             ],
             [
-                'facilitty' => 'Meja'
+                'facility' => 'Meja'
             ],
             [
-                'facilitty' => 'Mushola'
+                'facility' => 'Mushola'
             ],
             [
-                'facilitty' => 'Panggung'
+                'facility' => 'Panggung'
             ],
             [
-                'facilitty' => 'Ruangan pendukung'
+                'facility' => 'Ruangan pendukung'
             ],
             [
-                'facilitty' => 'Restoran'
+                'facility' => 'Restoran'
             ],
             [
-                'facilitty' => 'Toilet'
+                'facility' => 'Toilet'
             ],
             [
-                'facilitty' => 'Wifi'
+                'facility' => 'Wifi'
             ]
         ];
+        foreach ($cities as $key => $value) {
+            Facility::create($value);
+        }
     }
 }

@@ -28,5 +28,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('venue', [Controller::class, 'getVenue']); 
 
-Route::get('pemesanan', [Controller::class, 'getPemesanan']); 
+Route::get('pemesanan', [Controller::class, 'getPemesanan']);
+
+Route::get('pembayaran/{id}', [Controller::class, 'getDetailVenue']);
 

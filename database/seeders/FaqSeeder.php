@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Faq;
 
-class faq extends Seeder
+
+class FaqSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +16,7 @@ class faq extends Seeder
      */
     public function run()
     {
-        $faq = [
+        $faqs = [
             [
                 'question' => 'Apakah tersedia makanan gratis?',
                 'answer'=> 'Pengunjung dapat membeli makanan pada food court yang tersedia di dalam venue',
@@ -46,5 +48,8 @@ class faq extends Seeder
                 'id_venue' => 6
             ],
         ];
+        foreach ($faqs as $key => $value) {
+            Faq::create($value);
+        }
     }
 }

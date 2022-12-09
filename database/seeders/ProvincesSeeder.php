@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Province;
+
 
 class ProvincesSeeder extends Seeder
 {
@@ -16,17 +18,20 @@ class ProvincesSeeder extends Seeder
     {
         $provinces = [
             [
-                'provinces' => 'DKI Jakarta'
+                'province' => 'DKI Jakarta'
             ],
             [
-                'provinces' => 'Jawa Barat'
+                'province' => 'Jawa Barat'
             ],
             [
-                'provinces' => 'Bali'
+                'province' => 'Bali'
             ],
             [
-                'provinces' => 'Papua Barat Daya'
+                'province' => 'Papua Barat Daya'
             ]
         ];
+        foreach ($provinces as $key => $value) {
+            Province::create($value);
+        }
     }
 }
