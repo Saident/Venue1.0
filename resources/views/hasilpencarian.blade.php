@@ -69,16 +69,16 @@
                             class="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pemesanan</a>
                     </li>
                     <li>
-                        @if ((Auth::user())!==null)
-                        <a href="#"
-                            class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            {{Auth::user()->name}}
-                        </a>
+                        @if (Auth::user() !== null)
+                            <a href="#"
+                                class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                {{ Auth::user()->name }}
+                            </a>
                         @else
-                        <a href="/login"
-                            class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            Login
-                        </a>
+                            <a href="/login"
+                                class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                Login
+                            </a>
                         @endif
                     </li>
                 </ul>
@@ -186,21 +186,11 @@
 
 
         <div class="w-full flex flex-row py-16 gap-8">
-            <div class="flex flex-col gap-80">
+            <div class="flex flex-col gap-2">
                 <div class="w-full items-center justify-center">
-                    <button id="dropdownBottomButton" data-dropdown-toggle="dropdownBottom"
-                        data-dropdown-placement="bottom"
-                        class="w-full mr-2 mb-3 md:mb-0 text-primary bg-white hover:bg-white focus:ring-2 focus:outline-none focus:ring-white font-medium rounded-lg text-xl px-12 py-2.5 text-center inline-flex items-center"
-                        type="button">Tema<svg class="ml-4 w-4 h-4" aria-hidden="true" fill="currentColor"
-                            viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
-
-                    <!-- Dropdown menu -->
-                    <div id="dropdownBottom"
-                        class=" z-10 w-52 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    <div id="filterTema"
+                        class=" z-10 w-52 bg-white rounded-2xl divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <h1 class="px-6 py-4 text-primary text-left font-medium">Tema</h1>
                         <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownRadioBgHoverButton">
                             <li>
@@ -264,20 +254,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="w-full py-4 items-center justify-center">
-                    <button id="dropdownBottomButton2" data-dropdown-toggle="dropdownBottom2"
-                        data-dropdown-placement="bottom"
-                        class="w-full mr-2 mb-3 md:mb-0 text-primary bg-white hover:bg-white focus:ring-2 focus:outline-none focus:ring-white font-medium rounded-lg text-xl px-12 py-2.5 text-center inline-flex items-center"
-                        type="button">Urutkan<svg class="ml-4 w-4 h-4" aria-hidden="true" fill="currentColor"
-                            viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
 
-                    <!-- Dropdown menu -->
+                <div class="w-full py-4 items-center justify-center">
                     <div id="dropdownBottom2"
-                        class="z-10 w-52 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        class="z-10 w-52 bg-white rounded-2xl divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <h1 class="px-6 py-4 text-primary text-left font-medium">Urutkan</h1>
                         <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownRadioBgHoverButton">
                             <li>
