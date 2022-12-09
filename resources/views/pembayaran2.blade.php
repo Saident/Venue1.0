@@ -82,7 +82,7 @@
     <div class="w-full h-screen bg-no-repeat bg-center items-center justify-center p-56"
         style="background-image: url('./images/bg_pembayaran1.png')">
         <div class="bg-white rounded-lg flex flex-col py-2 px-4">
-            <div class="flex flex-col">
+            <div class="flex flex-col py-2 px-2 justify evenly">
                 <div class="flex flex-col px-8 pt-8 pb-4">
                     <h1 class="w-full pl-8 pt-4 text-primary text-2xl font-bold">Pemesanan Tanggal Venue</h1>
                     <h2 class="w-full pl-8 text-primary text-md font-medium">12 Oktober 2022</h2>
