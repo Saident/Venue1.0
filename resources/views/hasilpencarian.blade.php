@@ -96,21 +96,23 @@
                 </div>
                 <img class="w-full items-center justify-center py-4 px-16" src="./images/line_pembayara.png">
                 <div class="flex flex-col w-full lg:flex-row gap-16">
-                    <div class=" lg:pl-16 flex flex-col w-full gap-4">
-                        <h1 class="text-primary font-medium">Lokasi</h1>
+                    <div class="lg:pl-16 flex flex-col w-full gap-4">
+                        <h1 class="text-primary font-medium">Lokasi</h1> 
                         <div class="w-full flex flex-row items-center gap-4 relative">
-                            {{-- <label for="location" class="block py-2"></label> --}}
+                            {{-- <label for="location" class="blption>
+                                <option value="JKT">Jakartock py-2"></label> --}}
 
                             <img class="absolute left-2 w-[20px] h-[20px]" src="./images/location.png" />
                             <select id="location"
                                 class="bg-white border border-blank text-primary text-sm rounded-lg focus:border-primary block w-full  gap-2 py-2.5 px-8 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Pilih Lokasi</option>
+                                <option selected>Pilih Lokasi</oa</option>
                                 <option value="JKT">Jakarta</option>
-                                <option value="SBY">Surabaya</option>
                                 <option value="MLG">Malang</option>
-                                <option value="MDN">Medan</option>
+                                <option value="SMR">Semarang</option>
                                 <option value="PDG">Padang</option>
-                                <option value="RJP">Raja Ampat</option>
+                                <option value="MKS">Makasar</option>
+                                <option value="ACH">Aceh</option>
+                                <option value="MDN">Medan</option>
                             </select>
                         </div>
                     </div>
