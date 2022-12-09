@@ -294,23 +294,23 @@
 
             <div class="w-full flex flex-col bg-white rounded-lg py-8 px-8 gap-8">
             {{-- item --}}
-
+            @foreach($venue as $vn)
             <div
                 class="bg-white rounded-lg border-primary border-2 w-full flex flex-row py-4 px-4 items-center justify-start gap-4 ">
                 <img class="aspect-square rounded-2xl" src="./images/pantaiora.png">
                 <div class="flex flex-col justify-start gap-2">
-                    <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                    <h2 class="text-primary font-medium">Maluku Tengah</h2>
+                    <h1 class="text-primary text-2xl font-semibold">{{$vn->name}}</h1>
+                    <h2 class="text-primary font-medium">{{$vn->city->city}}</h2>
                     <div class="flex flex-row items-center gap-2">
                         <img class="aspect-auto" src="./images/rating.png">
                         <p class="text-primary font-medium text-medium">(214)</p>
                     </div>
                     <p class="text-primary font-medium text-medium pr-8">
-                        Berlokasi di antara Gunung Kawi dan Gunung Arjuna, Pantai Ora dikelilingi oleh
-                        pemandangan pasir putih yang memberikan kesempatan untuk bersantai</p>
-                    <p class="text-primary font-medium text-medium py-6"><a href="/">Selengkapnya ></a></p>
+                        {{$vn->description}}</p>
+                    <p class="text-primary font-medium text-medium py-6"><a href="/pembayaran/{{$vn->id}}">Selengkapnya ></a></p>
                 </div>
             </div>
+            @endforeach
 
                 <div class="flex flex-row items-center gap-4 justify-end">
                     <p class="text-primary font-medium text-md"><a href="@">Sebelumnya</a></p>

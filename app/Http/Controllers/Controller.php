@@ -22,12 +22,27 @@ class Controller extends BaseController
 
     public function getPemesanan()
     {
-        return view('hasilpencarian');
+        $venue = Venue::all();
+        return view("hasilpencarian", ["message" => "get all venue", "venue" => $venue]);
     } 
     public function getVenue()
     {
         return view('venues');
     } 
+
+    public function indexHomepage()
+    {
+        $carousel = Galeri::all()->take(6);
+        $lembaga = Lembaga::all()->take(8);
+        return view("frontend.index", ["title" => "Beranda", 'carousel' => $carousel, 'lembaga' => $lembaga]);
+    }
+
+    public function GetDetailVenue(Request $request){
+        $id = $request->id;
+        $venue = Venue::with('category', 'city', 'facility', 'faq', 'review')->find($id)->setHidden(['created_at', 'updated_at']);
+        return view("pembayaran", ["message" => "get detail venue", "venue" => $venue]);
+    }
+    
     
     
 
@@ -90,60 +105,10 @@ class Controller extends BaseController
                 'price' => $venue->price
             ];
         }
-        return response()->json([
-            'status' => 'success',
-            'message' => "All venue has displayed.",
-            'list' => $venueList
-        ], 200);
+
     }
 
-    public function GetDetailVenue($id)
-    {
-        $venue = Venue::with('category', 'city', 'facility', 'faq', 'review')->find($id)->setHidden(['created_at', 'updated_at']);
-        $facilityList = [];
-        $faqList = [];
-        $reviewList = [];
-        $facilities = $venue->facility;
-        $faqs = $venue->faq;
-        $reviews = $venue->review;
-        foreach ($facilities as $facility) {
-            $facilityList[] = [
-                'facility' => $facility->facility
-            ];
-        }
-        foreach ($faqs as $faq) {
-            $faqList[] = [
-                'quetion' => $faq->question,
-                'answer' => $faq->answer
-            ];
-        }
-        foreach ($reviews as $review) {
-            $reviewList[] = [
-                'review' => $review->review,
-                'customer' => $review->customer->nama
-            ];
-        }
-        return response()->json([
-            'status' => 'success',
-            'message' => "Detail of $venue->name has displayed.",
-            'detail' => [
-                'id' => $venue->id,
-                'name' => $venue->name,
-                'vendor' => $venue->vendor,
-                'category' => $venue->category->category,
-                'address' => $venue->address,
-                'city' => $venue->city->city,
-                'province' => $venue->city->province->province,
-                'description' => $venue->description,
-                'policy' => $venue->policy,
-                'facility' => $facilityList,
-                'picture' => $venue->picture,
-                'price' => $venue->price,
-                'faq' => $faqList,
-                'review' => $reviewList
-            ]
-        ], 200);
-    }
+
 
     public function AddVenueFacility(Request $request)
     {
