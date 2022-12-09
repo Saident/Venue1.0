@@ -1,6 +1,6 @@
 <?php
   
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
   
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -61,7 +61,6 @@ class AuthController extends Controller
     {  
         $request->validate([
             'name' => 'required',
-            'no-telp' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -69,7 +68,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
          
-        return redirect("dashboard")->withSuccess('Login Success');
+        return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
     
     /**
@@ -96,7 +95,6 @@ class AuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'no_telp' => $data['no_telp'],
         'password' => Hash::make($data['password'])
       ]);
     }

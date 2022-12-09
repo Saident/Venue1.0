@@ -78,15 +78,16 @@
         </div>
     </nav>
 
-    <form class="w-full h-screen flex flex-col items-center justify-center gap-4 bg-cover" method="post" action="{{ route('register.post') }}"
-        style="background-image: url('./images/bg_login.png')">
+    <form action="{{ route('register.post') }}" method="POST">
         @csrf
+    <div class="w-full h-screen flex flex-col items-center justify-center gap-4 bg-cover" 
+        style="background-image: url('./images/bg_login.png')">
+        
         <div class="w-full flex flex-col items-center">
             <h1 class="w-full text-2xl font-bold text-primary text-center py-2">Halo, senang bertemu Anda kembali</h1>
-            <p class="w-full text-xl font-semibold text-primary text-center">Untuk membuka akun Anda, silahkan login
+            <p class="w-full text-xl font-semibold text-primary text-center">Untuk membuka akun Anda, silahkan daftar
                 terlebih dahulu</p>
         </div>
-
         <div class="w-full px-4 flex flex-col items-center">
             <div class="w-1/4 relative py-2 px-4 items-center justify-center">
                 <div class="relative py-2">
@@ -136,10 +137,11 @@
                 </div>
             </div>
         </div>
-        <a href="/venues"><button type="submit"
-                class="w-full text-white bg-blank rounded-full py-3 px-8 text-md hover:bg-transparent transition-all border-2 hover:text-blank hover:border-blank ">
+        <a>
+            <button type="submit" class="w-full text-white bg-blank rounded-full py-3 px-8 text-md hover:bg-transparent transition-all border-2 hover:text-blank hover:border-blank ">
                 Daftar</button></a>
         <p class="font-semibold">Sudah terdaftar? <a href="" class="text-blank fnt-semibold">Login</p>
+        </div>
     </form>
 </body>
 
