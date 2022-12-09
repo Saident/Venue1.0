@@ -17,7 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $primaryKey='email';
+    protected $primaryKey = 'email';
+    public $incrementing = false;
     protected $fillable = [
         'name',
         'email',
@@ -43,4 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class, 'id_customer');
+    }
 }
