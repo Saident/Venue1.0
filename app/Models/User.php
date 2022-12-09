@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $primaryKey = 'email';
     public $incrementing = false;
+    
     protected $fillable = [
         'name',
         'email',
