@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Venue;
 
-class DatabaseSeeder extends Seeder
+
+class VenuesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $provinces = [
+        $venues = [
             [
                 'name' => 'GWK Festival Park',
                 'vendor'=> 'Garuda Wisnu Kencana Culture Park',
@@ -24,7 +26,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'GWK Festival Park merupakan sebuah taman yang dapat digunakan untuk menggelar berbagai kegiatan di luar ruangan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 150000000
+                'price' => 150000000,
+                'rating' => 5
             ],
             [
                 'name' => 'Main Hall',
@@ -35,7 +38,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Sentul International Convention Center merupakan sebuah hallroom dapat digunakan untuk menggelar berbagai kegiatan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 200000000
+                'price' => 200000000,
+                'rating' => 5
             ],
             [
                 'name' => 'Pantai Saleo',
@@ -46,7 +50,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Pantai Saleo merupakan sebuah pantai yang memiliki kenampakan yang indah dan dapat digunakan untuk menggelar berbagai kegiatan di luar ruangan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 10000000
+                'price' => 10000000,
+                'rating' => 5
             ],
             [
                 'name' => 'Pine Forest Camp',
@@ -57,7 +62,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Pine Forest Camp merupakan sebuah hutan yang memiliki kenampakan yang indah dan dapat digunakan untuk menggelar berbagai kegiatan di luar ruangan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 8000000
+                'price' => 8000000,
+                'rating' => 5
             ],
             [
                 'name' => 'The Apurva Kempinski',
@@ -68,7 +74,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'The Apurva Kempinski Bali merupakan sebuah hallroom dapat digunakan untuk menggelar berbagai kegiatan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 100000000
+                'price' => 100000000,
+                'rating' => 5
             ],
             [
                 'name' => 'The Opus Grand Ballroom',
@@ -79,8 +86,12 @@ class DatabaseSeeder extends Seeder
                 'description' => 'The Opus Grand Ballroom merupakan sebuah hallroom yang berada di dalam gedung The Tribrata Dharmawangsa yang dapat digunakan untuk menggelar berbagai kegiatan.',
                 'policy' => 'Dilarang membawa binatang',
                 'picture' => null,
-                'price' => 125000000
+                'price' => 125000000,
+                'rating' => 5
             ]
         ];
+        foreach ($venues as $key => $value) {
+            Venue::create($value);
+        }
     }
 }

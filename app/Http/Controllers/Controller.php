@@ -27,7 +27,9 @@ class Controller extends BaseController
     public function getVenue()
     {
         return view('venues');
-    }  
+    } 
+    
+    
 
     public function getAllProvince()
     {
