@@ -45,6 +45,26 @@ class Controller extends BaseController
         return view("detail", ["id_reservation" => $id_reservation, "venue" => $venue]);
     }
     
+    public function createReservation(Request $request)
+    {
+        $id = $request->id;
+        $venue = Venue::find($id);
+        $id_reservation = $request->id_reservation;
+        $days_count = date_diff(date_create($request->check_in), date_create($request->check_out));
+        $price = $venue->price;
+        $sum_price = $days_count->d * $price->price;
+        $reservation = Reservation::create([
+            'id_reservation' => $id_reservation,
+            'id_customer' => $request->id_customer,
+            'id_venue' => $request->id_venue,
+            'check_in' => $request->check_in,
+            'check_out' => $request->check_out,
+            'days_count' => $days_count->d,
+            'price' => $sum_price
+        ]);
+        // $bill = Reservation::with(['customer', 'venue'])->find($id_reservation)->setHidden(['updated_at']);
+
+    }    
     
     
 
@@ -121,38 +141,7 @@ class Controller extends BaseController
             'message' => "Facility has been added."
         ], 200);
     }
-    public function createReservation(Request $request)
-    {
-        $id_reservation = Str::random(8);
-        $days_count = date_diff(date_create($request->check_in), date_create($request->check_out));
-        $price = Venue::where('id', $request->id_venue)->first('price');
-        $sum_price = $days_count->d * $price->price;
-        $reservation = Reservation::create([
-            'id_reservation' => $id_reservation,
-            'id_customer' => $request->id_customer,
-            'id_venue' => $request->id_venue,
-            'check_in' => $request->check_in,
-            'check_out' => $request->check_out,
-            'days_count' => $days_count->d,
-            'price' => $sum_price
-        ]);
-        $bill = Reservation::with(['customer', 'venue'])->find($id_reservation)->setHidden(['updated_at']);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Reservation has been added.',
-            'reservation' => [
-                'id_reservation' => $bill->id_reservation,
-                'customer' => $bill->customer->name,
-                'venue' => $bill->venue->name,
-                'price' => $bill->price,
-                'check_in' => $bill->check_in,
-                'check_out' => $bill->check_out,
-                'count_days' => $bill->days_count,
-                'desc' => $bill->desc,
-                'created_at' => $bill->created_at
-            ]
-        ]);
-    }
+
 
     public function forTransaction($id)
     {
