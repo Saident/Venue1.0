@@ -42,7 +42,7 @@ class Controller extends BaseController
         $id = $request->id;
         $venue = Venue::with('category', 'city', 'facility', 'faq', 'review')->find($id)->setHidden(['created_at', 'updated_at']);
         // $sum_price = $days_count->d * $venue->price;
-        return view("pembayaran", ["id_reservation" => $id_reservation, "venue" => $venue]);
+        return view("detail", ["id_reservation" => $id_reservation, "venue" => $venue]);
     }
     
     
