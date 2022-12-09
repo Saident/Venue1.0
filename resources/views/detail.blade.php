@@ -95,8 +95,12 @@
                         <h1 class="w-full pl-8 pt-4 text-primary text-2xl font-bold">Detail Pembayaran</h1>
                         <h2 class="w-full pl-8 text-primary text-md font-medium">Informasi Pemesanan</h2>
                     </div>
+<<<<<<< HEAD
                     <img class="w-full items-center justify-center py-4 px-16"
                         src="{{ URL::asset('./images/line_pembayara.png') }}">
+=======
+                    <img class="w-full items-center justify-center py-4 px-16" src="{{ URL::asset('./images/line_pembayara.png');}}">
+>>>>>>> bcd525a9222b2dcfb0870b7cb88469a808e1efb8
                     <div class="flex flex-col w-full lg:flex-row gap-16">
                         <div class=" lg:pl-16 flex flex-col w-full gap-4">
                             <h1 class="text-primary font-medium">Lokasi</h1>

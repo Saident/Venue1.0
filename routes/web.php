@@ -32,3 +32,5 @@ Route::get('pemesanan', [Controller::class, 'getPemesanan']);
 
 Route::get('pembayaran/{id}', [Controller::class, 'getDetailVenue']);
 
+Route::post('createreservation/{id}', [Controller::class, 'createReservation']);
+
