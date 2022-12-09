@@ -95,19 +95,19 @@
                 <div class="w-full flex flex-row py-2 pl-8 gap-4">
                     <img class="w-sm aspect-square rounded-lg" src="./images/pantai ora.png">
                     <div class="flex flex-col gap-1 w-full">
-                        <p class="px-8 text-primary text-xl font-bold">Pantai Ora</p>
+                        <p class="px-8 text-primary text-xl font-bold">{{$venue->name}}</p>
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-row justify-between px-8">
                                 <p class="text-primary text-sm font-medium">Kode Booking</p>
-                                <p class="text-primary text-sm font-medium text-left lg:text-right">03122022001</p>
+                                <p class="text-primary text-sm font-medium text-left lg:text-right">{{$id_reservation}}</p>
                             </div>
                             <div class="flex flex-col lg:flex-row justify-between px-8">
                                 <p class="text-primary text-sm font-medium">Customer</p>
-                                <p class="text-primary text-sm font-medium text-left lg:text-right">Anggi Dewi Putri</p>
+                                <p class="text-primary text-sm font-medium text-left lg:text-right">{{Auth::user()->name}}</p>
                             </div>
                             <div class="flex flex-col lg:flex-row justify-between px-8">
                                 <p class="text-primary text-sm font-medium">Lokasi</p>
-                                <p class="text-primary text-sm font-medium text-left lg:text-right ">Maluku Utara</p>
+                                <p class="text-primary text-sm font-medium text-left lg:text-right ">{{$venue->city->city}}</p>
                             </div>
                             <div class="flex flex-col lg:flex-row justify-between px-8">
                                 <p class="text-primary text-sm font-medium">Check-In</p>
@@ -134,7 +134,7 @@
                 <img class="w-full items-center justify-center py-4 px-8" src="./images/line_pembayara.png">
                 <div class="flex flex-row justify-between">
                     <h1 class="w-full px-8 py-4 text-primary text-2xl font-bold">Total</h1>
-                    <h1 class="w-full px-8 py-4 text-primary text-2xl text-right font-bold">IDR 20.500.000</h1>
+                    <h1 class="w-full px-8 py-4 text-primary text-2xl text-right font-bold">{{$venue->price}}</h1>
                 </div>
             </div>
         </div>

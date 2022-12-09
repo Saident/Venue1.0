@@ -38,9 +38,11 @@ class Controller extends BaseController
     }
 
     public function GetDetailVenue(Request $request){
+        $id_reservation = Str::random(8);
         $id = $request->id;
         $venue = Venue::with('category', 'city', 'facility', 'faq', 'review')->find($id)->setHidden(['created_at', 'updated_at']);
-        return view("pembayaran", ["message" => "get detail venue", "venue" => $venue]);
+        // $sum_price = $days_count->d * $venue->price;
+        return view("pembayaran", ["id_reservation" => $id_reservation, "venue" => $venue]);
     }
     
     
