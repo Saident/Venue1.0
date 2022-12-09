@@ -21,7 +21,7 @@ class Reservation extends Model
      * @var string[]
      */
     protected $fillable = [
-        'id_reservation', 'id_customer', 'id_venue', 'check_in', 'check_out', 'days_count', 'price', 'id_transaction', 'desc'
+        'id_reservation', 'email', 'id_venue', 'check_in', 'check_out', 'days_count', 'price', 'id_transaction', 'desc'
     ];
 
     /**

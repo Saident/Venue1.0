@@ -11,6 +11,8 @@ use App\Models\Venue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -24,11 +26,11 @@ class Controller extends BaseController
     {
         $venue = Venue::all();
         return view("hasilpencarian", ["message" => "get all venue", "venue" => $venue]);
-    } 
+    }
     public function getVenue()
     {
         return view('venues');
-    } 
+    }
 
     public function indexHomepage()
     {
@@ -41,32 +43,32 @@ class Controller extends BaseController
         $id_reservation = Str::random(8);
         $id = $request->id;
         $venue = Venue::with('category', 'city', 'facility', 'faq', 'review')->find($id)->setHidden(['created_at', 'updated_at']);
-        // $sum_price = $days_count->d * $venue->price;
-        return view("detail", ["id_reservation" => $id_reservation, "venue" => $venue]);
+        $days_count = date_diff(date_create($request->start), date_create($request->end));
+        $sum_price = $days_count->d * $venue->price;
+        return view("detail", ["id_reservation" => $id_reservation, "venue" => $venue,
+        "sumprice" => $sum_price, "id" => $id]);
     }
-    
+
     public function createReservation(Request $request)
     {
         $id = $request->id;
         $venue = Venue::find($id);
-        $id_reservation = $request->id_reservation;
-        $days_count = date_diff(date_create($request->check_in), date_create($request->check_out));
+        $id_reservation = Str::random(8);
+        // $days_count = date_diff(date_create($request->start), date_create($request->end));
         $price = $venue->price;
-        $sum_price = $days_count->d * $price->price;
+        // $sum_price = $days_count->d * $price->price;
         $reservation = Reservation::create([
+            'email' => Auth::user()->email,
             'id_reservation' => $id_reservation,
-            'id_customer' => $request->id_customer,
-            'id_venue' => $request->id_venue,
-            'check_in' => $request->check_in,
-            'check_out' => $request->check_out,
-            'days_count' => $days_count->d,
-            'price' => $sum_price
+            'id_venue' => $venue->id,
+            'price' => $venue->price,
         ]);
+        return view("pembayaran", ["venue" => $venue, "id_reservation" => $id_reservation]);
         // $bill = Reservation::with(['customer', 'venue'])->find($id_reservation)->setHidden(['updated_at']);
 
-    }    
-    
-    
+    }
+
+
 
     public function getAllProvince()
     {

@@ -95,23 +95,17 @@
                         <h1 class="w-full pl-8 pt-4 text-primary text-2xl font-bold">Detail Pembayaran</h1>
                         <h2 class="w-full pl-8 text-primary text-md font-medium">Informasi Pemesanan</h2>
                     </div>
-<<<<<<< HEAD
-                    <img class="w-full items-center justify-center py-4 px-16"
-                        src="{{ URL::asset('./images/line_pembayara.png') }}">
-=======
                     <img class="w-full items-center justify-center py-4 px-16" src="{{ URL::asset('./images/line_pembayara.png');}}">
->>>>>>> bcd525a9222b2dcfb0870b7cb88469a808e1efb8
                     <div class="flex flex-col w-full lg:flex-row gap-16">
                         <div class=" lg:pl-16 flex flex-col w-full gap-4">
-                            <h1 class="text-primary font-medium">Lokasi</h1>
+                            <h1 class="text-primary font-medium">Location</h1>
                             <div class="w-full flex flex-row items-center gap-4 relative pr-4">
                                 {{-- <label for="location" class="block py-2"></label> --}}
 
                                 <img class="absolute left-2 w-[20px] h-[20px]"
                                     src={{ asset('/images/location.png') }} />
                                 <h2 class="w-full py-2 pl-8 border border-blank rounded-xl text-primary text-sm font-medium">
-                                    Nama
-                                    Lokasi</h2>
+                                    {{$venue->city->city}}</h2>
                             </div>
                         </div>
 
@@ -200,8 +194,8 @@
                     </div>
                 </div>
                 <div class="flex flex-col justify-start px-16 py-2">
-                    <h1 class="text-primary text-2xl font-semibold">Pantai Ora</h1>
-                    <h2 class="text-primary font-medium">Maluku Tengah</h2>
+                    <h1 class="text-primary text-2xl font-semibold">{{$venue->name}}</h1>
+                    <h2 class="text-primary font-medium">{{$venue->city->city}}</h2>
                     <div class="flex flex-row items-center gap-2">
                         <img class="aspect-auto" src="./images/rating.png">
                         <p class="text-primary font-medium text-medium">(214)</p>
@@ -213,8 +207,7 @@
                 <div class="w-full flex flex-row justify-center items-center gap-8">
                     <p class="text-primary font-semibold text-medium pr-24">Deskripsi</p>
                     <p class="text-primary font-medium text-medium">
-                        Pantai atau pesisir adalah sebuah bentuk geografis yang terdiri dari pasir, dan terdapat di
-                        daerah pesisir laut. Daerah pantai menjadi batas antara daratan dan perairan laut.</p>
+                        {{$venue->description}}</p>
                 </div>
                 <img class="w-full items-end py-2" src="./images/line_pembayara.png">
                 <div class="w-full flex flex-row justify-center items-center gap-6">
@@ -270,11 +263,12 @@
 
                     </div>
                 </div>
-                <h1 class="w-full px-8 py-2 text-primary text-2xl text-right font-bold">IDR 20.500.000</h1>
+                <h1 class="w-full px-8 py-2 text-primary text-2xl text-right font-bold">{{$venue->price}}</h1>
                 <div class="w-full justify-end flex px-8">
-                    <a href="#">
-                        <button
-                            class="px-8 py-2 items-end text-center text-white bg-blank rounded-2xl hover:bg-white hover:text-blank hover:border-blank hover:border-2 transitions-all">Pesan</button>
+                    <a href="/createreservation/{{$venue->id}}">
+                        <button method="post"
+                            class="px-8 py-2 items-end text-center text-white bg-blank rounded-2xl hover:bg-white hover:text-blank hover:border-blank hover:border-2 transitions-all">
+                            Pesan</button>
                     </a>
                 </div>
             </div>
