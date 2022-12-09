@@ -69,16 +69,16 @@
                             class="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pemesanan</a>
                     </li>
                     <li>
-                        @if ((Auth::user())!==null)
-                        <a href="#"
-                            class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            {{Auth::user()->name}}
-                        </a>
+                        @if (Auth::user() !== null)
+                            <a href="#"
+                                class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                {{ Auth::user()->name }}
+                            </a>
                         @else
-                        <a href="/login"
-                            class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                            Login
-                        </a>
+                            <a href="/login"
+                                class="block py-2 px-8 text-white rounded border-2 border-btn bg-btn hover:bg-transparent md:hover:bg-transparent transition-all md:hover:text-blue-700 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                                Login
+                            </a>
                         @endif
                     </li>
                 </ul>
@@ -87,7 +87,7 @@
     </nav>
 
     <div class="w-full h-full bg-no-repeat bg-center items-center justify-center p-56"
-        style="background-image: url('./images/bg_beranda.png')">
+        style="background-image:{{ URL::asset('./images/bg_beranda.png') }}">
         <div class="flex flex-col px-4 py-4 gap-16">
             <div class="bg-white rounded-lg flex flex-col py-2 px-4">
                 <div class="flex flex-col">
@@ -95,24 +95,19 @@
                         <h1 class="w-full pl-8 pt-4 text-primary text-2xl font-bold">Detail Pembayaran</h1>
                         <h2 class="w-full pl-8 text-primary text-md font-medium">Informasi Pemesanan</h2>
                     </div>
-                    <img class="w-full items-center justify-center py-4 px-16" src="{{URL::asset('./images/line_pembayara.png');}}">
+                    <img class="w-full items-center justify-center py-4 px-16"
+                        src="{{ URL::asset('./images/line_pembayara.png') }}">
                     <div class="flex flex-col w-full lg:flex-row gap-16">
                         <div class=" lg:pl-16 flex flex-col w-full gap-4">
                             <h1 class="text-primary font-medium">Lokasi</h1>
-                            <div class="w-full flex flex-row items-center gap-4 relative">
+                            <div class="w-full flex flex-row items-center gap-4 relative pr-4">
                                 {{-- <label for="location" class="block py-2"></label> --}}
 
-                                <img class="absolute left-2 w-[20px] h-[20px]" src="./images/location.png" />
-                                <select id="location"
-                                    class="bg-white border border-blank text-primary text-sm rounded-lg focus:border-primary block w-full  gap-2 py-2.5 px-8 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Pilih Lokasi</option>
-                                    <option value="JKT">Jakarta</option>
-                                    <option value="SBY">Surabaya</option>
-                                    <option value="MLG">Malang</option>
-                                    <option value="MDN">Medan</option>
-                                    <option value="PDG">Padang</option>
-                                    <option value="RJP">Raja Ampat</option>
-                                </select>
+                                <img class="absolute left-2 w-[20px] h-[20px]"
+                                    src={{ asset('/images/location.png') }} />
+                                <h2 class="w-full py-2 pl-8 border border-blank rounded-xl text-primary text-sm font-medium">
+                                    Nama
+                                    Lokasi</h2>
                             </div>
                         </div>
 
@@ -154,8 +149,7 @@
                                                     clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
-                                        <input datepicker datepicker-orientation="bottom" name="end"
-                                            type="text"
+                                        <input datepicker datepicker-orientation="bottom" name="end" type="text"
                                             class="bg-white border border-blank text-primary font-medium placeholder:text-primary text-sm rounded-lg focus:ring-primary focus:border-primary block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             placeholder="Select date end">
                                     </div>
@@ -166,7 +160,7 @@
                         <div class="flex flex-col gap-4 w-full pr-16">
                             <h1 class="text-primary text-left font-medium">Jumlah Tamu</h1>
                             <div class="flex flex-row relative items-center">
-                                <img class="absolute left-2 w-[25px] h-[25px]" src="./images/people.png" />
+                                <img class="absolute left-2 w-[25px] h-[25px]" src={{ asset('/images/people.png') }} />
                                 <input type="number" id="visitors"
                                     class="bg-white border border-primary text-primary text-sm rounded-lg focus:ring-blank focus:border-blank block w-full p-2.5 px-12 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="" required>
@@ -184,21 +178,21 @@
                             Venue
                         </button></a> --}}
 
-                    <button class="bg-blank text-white rounded-2xl text-center font-semibold py-2 px-4"><a
-                            href="#">Ubah Pencarian</a></button>
+                    {{-- <button class="bg-blank text-white rounded-2xl text-center font-semibold py-2 px-4"><a
+                            href="#">Ubah Pencarian</a></button> --}}
                 </div>
             </div>
 
             <div class=" bg-white rounded-2xl flex flex-col py-4 px-2 gap-2 justify-between">
                 <div class="flex flex-row gap-4 items-center justify-center py-4">
-                    <img class="aspect-square py-2 px-2 rounded-2xl" src="./images/ora1.png">
+                    <img class="aspect-square py-2 px-2 rounded-2xl" src={{ asset('/images/ora1.png') }}>
                     <div class="flex flex-col items-center gap-2">
-                        <img class="aspect-auto rounded-lg" src="./images/ora2.png">
-                        <img class="aspect-auto rounded-lg" src="./images/ora3.png">
+                        <img class="aspect-auto rounded-lg" src={{ asset('/images/ora2.png') }}>
+                        <img class="aspect-auto rounded-lg" src={{ asset('/images/ora3.png') }}>
                     </div>
                     <div class="flex flex-col items-center gap-2">
-                        <img class="aspect-auto rounded-lg" src="./images/ora4.png">
-                        <img class="aspect-auto rounded-lg" src="./images/ora5.png">
+                        <img class="aspect-auto rounded-lg" src={{ asset('/images/ora4.png') }}>
+                        <img class="aspect-auto rounded-lg" src={{ asset('/images/ora5.png') }}>
                     </div>
                 </div>
                 <div class="flex flex-col justify-start px-16 py-2">
